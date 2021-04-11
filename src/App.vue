@@ -5,7 +5,11 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
+      <div id="app" class="d-flex align-center">
+        <router-link to="/">/#/</router-link>
+        <router-link to="/test1">/#/test1</router-link>
+        <router-link to="/test2">/#/test2</router-link>
+        <router-view/>
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
