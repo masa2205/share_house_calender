@@ -11,7 +11,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list dense nav>
-          <v-list-item v-for="content in contents" :key="content.name">
+          <v-list-item v-for="content in contents" :key="content.name" exact>
             <v-list-item-icon>
               <v-icon>{{ content.icon }}</v-icon>
             </v-list-item-icon>
@@ -59,6 +59,7 @@
      max-width="auto"
      src="https://picsum.photos/id/11/500/300">
     </v-img>
+    <v-btn flat class="hidden-sm-and-down" to="/Test1">Menu</v-btn>
     <v-date-picker :mode="mode" :formats="formats" v-model="selectedDate"></v-date-picker>
     <v-footer color="#78909C" class="font-italic" dark app>Vuetify_share_house</v-footer>
   </v-app>
