@@ -15,13 +15,13 @@ export default new Router({
         component: HelloWorld
       },
       {
-        path: '/test1',
-        name: 'test1',
+        path: '/Test1',
+        name: 'Test1',
         component: Test1
       },
       {
-        path: '/test2',
-        name: 'test2',
+        path: '/Test2',
+        name: 'Test2',
         component: Test2
       }
     ]
