@@ -1,19 +1,26 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div id="app" class="d-flex align-center" v-cloak>
-        <router-link to="/">HelloWorld</router-link>
-        <router-link to="/Test1">Test1</router-link>
-      </div>
-    </v-app-bar>
-    <transition mode=”out-in”>
-      <router-view/>
-    </transition>
-  </v-app>
+  <div id="app" class="d-flex align-center" v-cloak>
+    <v-app>
+      <app-navigation/>
+        <router-link to="/"/>
+        <router-link to="/Test1"/>
+      <v-footer color="#78909C" class="font-italic" dark app>Vuetify_share_house</v-footer>
+      <transition mode=”out-in”>
+        <router-view/>
+      </transition>
+    </v-app>  
+  </div>  
 </template>
 
 <script>
+import AppNavigation from "./components/AppNavigation";
 
+export default {
+  name: "App",
+  components: {
+    AppNavigation
+  }
+};
 </script>
 
 <style>
