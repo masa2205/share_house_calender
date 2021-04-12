@@ -4,19 +4,17 @@
       <v-container>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="title blue--text text--darken-2">
-              Contents
-            </v-list-item-title>
+              <v-list-item-title class="title blue--text text--darken-2">Contents</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
         <v-list dense nav>
-          <v-list-item v-for="content in contents" :key="content.name">
+          <v-list-item v-for="content in contents" :key="content.name" :to="content.link">
             <v-list-item-icon>
               <v-icon>{{ content.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>{{ content.name }}</v-list-item-title>
+                <v-list-item-title>{{ content.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -24,7 +22,9 @@
     </v-navigation-drawer>
     <v-app-bar color="#78909C" dark clipped-left app>
       <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="font-italic">Vuetify_share_house</v-toolbar-title>
+      <router-link to="/">
+        <v-toolbar-title to="/" class="font-italic">Vuetify_share_house</v-toolbar-title>
+      </router-link>  
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" persistent max-width="600px">
         <template v-slot:activator="{ on, attrs }">
@@ -59,7 +59,6 @@
      max-width="auto"
      src="https://picsum.photos/id/11/500/300">
     </v-img>
-    <v-btn flat class="hidden-sm-and-down" to="/Test1">Menu</v-btn>s
     <v-date-picker :mode="mode" :formats="formats" v-model="selectedDate"></v-date-picker>
     <v-footer color="#78909C" class="font-italic" dark app>Vuetify_share_house</v-footer>
   </v-app>
@@ -69,13 +68,28 @@
   export default {
     data() {
       return{
-        drawer: null,
+        drawer: false,
         contents:[
-          {name: 'point of ToDo',icon: 'mdi-vuetify'},
-          {name: 'グラフ推移',icon: 'mdi-cogs'},
+          {name: 'point of ToDo',icon: 'mdi-vuetify',link:'/Test1'},
+          {name: 'グラフ推移',icon: 'mdi-cogs',link:'/Test2'},
           {name: '途中経過',icon: 'mdi-palette'}
         ]
       }
    }
   } 
 </script>
+
+<style scoped>
+a {
+  color: white;
+  text-decoration: none;
+}
+.router-link-exact-active {
+  color: black;
+  text-decoration: none;
+}
+.v-toolbar__title {
+  color: white;
+  text-decoration: none;
+}
+</style>
