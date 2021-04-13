@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <header>
     <v-navigation-drawer class="font-weight-black" v-model="drawer" clipped app>
       <v-container>
         <v-list-item>
@@ -53,7 +53,7 @@
         </v-card>  
       </v-dialog>
     </v-app-bar>
-  </v-app>
+  </header>
 </template>
 
 <script>

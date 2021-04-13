@@ -1,8 +1,12 @@
 <template>
-  <v-container>
-    <h1>Test1</h1>
-    <router-link to="/Test1">Test1</router-link>
-  </v-container>
+  <v-app>
+    <v-img
+     max-height="auto"
+     max-width="auto"
+     src="https://picsum.photos/id/11/500/300">
+    </v-img>
+    <router-link to="/Test1"></router-link>
+  </v-app>
 </template>
 
 <script>
