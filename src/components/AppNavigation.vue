@@ -38,16 +38,34 @@
             <v-container>
               <v-row>
                 <v-col cols="12">
-                  <v-text-field label="Email*" required></v-text-field>
+                  <v-text-field 
+                  label="Email*" 
+                  required
+                  name="email"
+                  type="email"
+                  v-model="email"
+                  :rules="emailRules"
+                  data-cy="joinEmailField"
+                  >
+                </v-text-field>
                 </v-col>
                 <v-col cols="12">
-                  <v-text-field label="Password*" type="password" required></v-text-field>
+                  <v-text-field 
+                  label="Password*" 
+                  type="password" 
+                  required
+                  name="password"
+                  v-model="password"
+                  :rules="passwordRules"
+                  data-cy="joinPasswordField"
+                  >
+                  </v-text-field>
                 </v-col>
               </v-row>
             </v-container>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+            <v-btn color="blue darken-1" text @click="dialog = false" >Close</v-btn>
             <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
           </v-card-actions>  
         </v-card>  
@@ -65,7 +83,7 @@
         contents:[
           {name: 'point of ToDo',icon: 'mdi-vuetify',link:'/Test1'},
           {name: 'グラフ推移',icon: 'mdi-cogs',link:'/Test2'},
-          {name: '途中経過',icon: 'mdi-palette'}
+          {name: '途中経過',icon: 'mdi-palette',link:'/Counter'}
         ]
       }
    }
