@@ -66,7 +66,7 @@
           </v-card-text>
           <v-card-actions>
             <v-btn color="blue darken-1" text @click="dialog = false" >Close</v-btn>
-            <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+            <v-btn color="blue darken-1" text @click="dialog = false">Join</v-btn>
           </v-card-actions>  
         </v-card>  
       </v-dialog>
@@ -84,10 +84,33 @@
           {name: 'point of ToDo',icon: 'mdi-vuetify',link:'/Test1'},
           {name: 'グラフ推移',icon: 'mdi-cogs',link:'/Test2'},
           {name: '途中経過',icon: 'mdi-palette',link:'/Counter'}
+        ],
+        valid: false,
+        email: '',
+        password: '',
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /.+@.+/.test(v) || 'E-mail must be valid'
+        ],
+        passwordRules: [
+          v => !!v || 'Password is required',
+          v =>
+            v.length >= 6 ||
+            'Password must be greater than 6 characters'
         ]
       }
-   }
-  } 
+   },
+   methods: {
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.$store.dispatch("userLogin", {
+          email: this.email,
+          password: this.password
+        });
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
