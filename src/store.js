@@ -1,11 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import firebase from "firebase";
-import router from "@/router";
+import router from "./router";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store ({
+  state: {
+    user: null,
+    isAuthenticated: false
+  },
   actions: {
     userLogin({ commit }, { email, password }) {
         firebase
@@ -21,17 +25,6 @@ export default new Vuex.Store ({
             commit('setIsAuthenticated', false);
             router.push('/');
             })
-          .then(user => {
-            commit('setUser', user);
-            commit('setIsAuthenticated', true);
-            router.push('/Test1');
-          })
-          .catch(() => {
-            commit('setUser', null);
-            commit('setIsAuthenticated', false);
-            router.push('/');
-          })
-          
     },
     userJoin({ commit }, { email , password }) {
       firebase
@@ -39,8 +32,8 @@ export default new Vuex.Store ({
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
           commit('setUser', user);
-          commit('setIsAuthenticated', false);
-          router.push('/');
+          commit('setIsAuthenticated', true);
+          router.push('/Test1');
         })
         .catch(() => {
           commit('setUser', null);
@@ -69,7 +62,7 @@ export default new Vuex.Store ({
       state.user = payload;
     },
     setIsAuthenticated(state, payload) {
-      state.isAuthenticated=payload;
+      state.isAuthenticated = payload;
     }
   },
   getters: {
