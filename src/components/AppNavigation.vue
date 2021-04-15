@@ -26,50 +26,13 @@
         <v-toolbar-title to="/" class="font-italic">Vuetify_share_house</v-toolbar-title>
       </router-link>  
       <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" persistent max-width="600px">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-on="on" v-bind="attrs" text elevation="24">Login</v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">User Profile</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col cols="12">
-                  <v-text-field 
-                  label="Email*" 
-                  required
-                  name="email"
-                  type="email"
-                  v-model="email"
-                  :rules="emailRules"
-                  data-cy="joinEmailField"
-                  >
-                </v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field 
-                  label="Password*" 
-                  type="password" 
-                  required
-                  name="password"
-                  v-model="password"
-                  :rules="passwordRules"
-                  data-cy="joinPasswordField"
-                  >
-                  </v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="blue darken-1" text @click="dialog = false" >Close</v-btn>
-            <v-btn color="blue darken-1" :disabled="!valid" @click="submit" data-cy="joinSubmitBtn">Join</v-btn>
-          </v-card-actions>  
-        </v-card>  
-      </v-dialog>
+      <div v-if="!isAuthenticated" class="hidden-sm-and-down">
+        <v-btn text to="/sign-in" data-cy="signinBtn">SIGN IN</v-btn>
+        <v-btn color="brown lighten-3" to="/join" class="nav-join" data-cy="joinBtn">JOIN</v-btn>
+      </div>
+      <div v-else>
+        <v-btn outline color="gray" @click="logout" data-cy="logout">Logout</v-btn>
+      </div>
     </v-app-bar>
   </header>
 </template>
@@ -85,31 +48,8 @@
           {name: 'グラフ推移',icon: 'mdi-cogs',link:'/Test2'},
           {name: '途中経過',icon: 'mdi-palette',link:'/Counter'}
         ],
-        valid: false,
-        email: '',
-        password: '',
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+/.test(v) || 'E-mail must be valid'
-        ],
-        passwordRules: [
-          v => !!v || 'Password is required',
-          v =>
-            v.length >= 6 ||
-            'Password must be greater than 6 characters'
-        ]
       }
     },
-    methods: {
-     submit() {
-       if (this.$refs.form.validate()) {
-         this.$store.dispatch("userLogin", {
-           email: this.email,
-           password: this.password
-         });
-       }
-     }
-    }
 }
 </script>
 
