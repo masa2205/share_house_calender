@@ -50,7 +50,17 @@
         ],
       }
     },
-}
+    computed: {
+      isAuthenticated() {
+        return this.$store.getters.isAuthenticated;
+      }
+    },
+    methods: {
+       logout() {
+         this.$store.dispatch("userSignOut");
+       }
+    }
+};
 </script>
 
 <style scoped>
