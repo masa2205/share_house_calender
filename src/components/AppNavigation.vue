@@ -31,7 +31,7 @@
         <v-btn color="brown lighten-3" to="/join" class="nav-join" data-cy="joinBtn">JOIN</v-btn>
       </div>
       <div v-else>
-        <v-btn outline color="gray" @click="logout" data-cy="logout">Logout</v-btn>
+        <v-btn outline color="brown lighten-3" @click="logout" data-cy="logout">Logout</v-btn>
       </div>
     </v-app-bar>
   </header>
