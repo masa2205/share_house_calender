@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
 import firebase from "firebase";
 import router from "@/router";
 
@@ -15,20 +14,22 @@ export default new Vuex.Store ({
           .then(user => {
             commit('setUser', user);
             commit('setIsAuthenticated', true);
+            router.push('/Test1');
           })
           .catch(() => {
             commit('setUser', null);
             commit('setIsAuthenticated', false);
+            router.push('/');
             })
           .then(user => {
             commit('setUser', user);
             commit('setIsAuthenticated', true);
-            router.push('/about'); //追加
+            router.push('/Test1');
           })
           .catch(() => {
             commit('setUser', null);
             commit('setIsAuthenticated', false);
-            router.push('/');　//追加
+            router.push('/');
           })
           
     },
@@ -46,7 +47,22 @@ export default new Vuex.Store ({
           commit('setIsAuthenticated' , false);
           router.push('/');
         });
-    }      
+    },
+    userSignOut({ commit }) {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        })
+        .catch(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        });
+    },      
   },
   mutations: {
     setUser(state, payload) {
@@ -56,4 +72,9 @@ export default new Vuex.Store ({
       state.isAuthenticated=payload;
     }
   },
+  getters: {
+    isAuthenticated(state) {
+      return state.user !== null && state.user !== undefined;
+    }
+  }
 });
