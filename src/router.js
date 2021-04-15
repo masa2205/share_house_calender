@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from './components/HelloWorld'
+import Home from './views/Home'
 import Test1 from './views/Test1'
 import Test2 from './views/Test2'
 import Counter from './components/Counter'
@@ -12,8 +12,8 @@ export default new Router({
     routes: [
       {
         path: '/',
-        name: 'HelloWorld',
-        component: HelloWorld
+        name: 'Home',
+        component: Home
       },
       {
         path: '/Test1',
