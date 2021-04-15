@@ -20,8 +20,11 @@ const router = new Router({
       {
         path: '/Test1',
         name: 'Test1',
-        component: Test1
-      },
+        component: Test1,
+        meta: {
+          authRequired: true
+        }
+      },  
       {
         path: '/Test2',
         name: 'Test2',
@@ -36,7 +39,7 @@ const router = new Router({
         path: "/sign-in",
         name: "signin",
         component: () => import("./views/Signin.vue")
-      },
+      },  
       {
         path: "/join",
         name: "join",
