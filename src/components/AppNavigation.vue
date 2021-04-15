@@ -66,7 +66,7 @@
           </v-card-text>
           <v-card-actions>
             <v-btn color="blue darken-1" text @click="dialog = false" >Close</v-btn>
-            <v-btn color="blue darken-1" text @click="dialog = false">Join</v-btn>
+            <v-btn color="blue darken-1" :disabled="!valid" @click="submit" data-cy="joinSubmitBtn">Join</v-btn>
           </v-card-actions>  
         </v-card>  
       </v-dialog>
@@ -76,7 +76,7 @@
 
 <script>
   export default {
-    name:"NaviGation",
+    name:"Navigation",
     data() {
       return{
         drawer: false,
@@ -99,17 +99,17 @@
             'Password must be greater than 6 characters'
         ]
       }
-   },
-   methods: {
-    submit() {
-      if (this.$refs.form.validate()) {
-        this.$store.dispatch("userLogin", {
-          email: this.email,
-          password: this.password
-        });
-      }
+    },
+    methods: {
+     submit() {
+       if (this.$refs.form.validate()) {
+         this.$store.dispatch("userLogin", {
+           email: this.email,
+           password: this.password
+         });
+       }
+     }
     }
-  }
 }
 </script>
 
