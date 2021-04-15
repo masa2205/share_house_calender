@@ -2,7 +2,6 @@
   <div id="app">
     <v-app>
       <app-navigation/>
-      <counter/>
       <v-footer color="#78909C" class="font-italic" dark app>Vuetify_share_house</v-footer>
       <transition mode=”out-in”>
         <router-view/>
@@ -14,13 +13,11 @@
 
 <script>
 import AppNavigation from "./components/AppNavigation";
-import Counter from './components/Counter.vue';
 
 export default {
   name: "App",
   components: {
     AppNavigation,
-    Counter
   }
 };
 </script>
