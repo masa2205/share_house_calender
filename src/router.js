@@ -5,6 +5,7 @@ import Test1 from './views/Test1'
 import Test2 from './views/Test2'
 import Counter from './components/Counter'
 import store from "@/store.js"
+import Chat from './views/Chat'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ const router = new Router({
         path: "/join",
         name: "join",
         component: () => import("./views/Join.vue")
+      },
+      {
+        path: '/Chat',
+        name: 'Chat',
+        component: Chat
       }
     ]
   });
