@@ -9,11 +9,13 @@
     "dev": "webpack --mode development"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "firebase": "^8.4.1",
     "store": "^2.0.12",
     "vue": "^2.6.11",
+    "vuefire": "^3.0.0-alpha.2",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
