@@ -1,7 +1,11 @@
+import Vue from 'vue'
+import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 import 'firebase/analytics'
+
+Vue.use(firestorePlugin)
 
 // 以下はValueにデモ用の値をセットしています。ご自身の環境に合わせて書き換えてください。
 const firebaseApp = firebase.initializeApp({
