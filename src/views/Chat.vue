@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import {db} from '../plugins/firebase';
+  import {db} from '@/plugins/firebase';
   export default {
     name: "Chat",
     data: () => ({
@@ -42,4 +42,5 @@
 </script>
 
 <style scoped>
+
 </style>
