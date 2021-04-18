@@ -15,6 +15,7 @@
               <v-list-item-subtitle class="text--primary subheading">{{comment.content}}</v-list-item-subtitle>
               <v-list-item-subtitle>
                 {{comment.createdAt.toDate().toLocaleString()}}
+                <v-icon color="red" @click="deleteComment(comment.id)" small>mdi-delete</v-icon>
               </v-list-item-subtitle>
             </v-list-item-content>
     
@@ -46,6 +47,14 @@
         comments: db.collection('comments').orderBy('createdAt')
 
       }
+    },
+    methods: {
+      deleteComment(id) {
+        if (!confirm('コメントを削除してよろしいですか？')) {
+          return
+        }
+        db.collection('comments').doc(id).delete()
+      },
     },
   }
 </script>
