@@ -15,6 +15,7 @@
               <v-list-item-subtitle class="text--primary subheading">{{comment.content}}</v-list-item-subtitle>
               <v-list-item-subtitle>
                 {{comment.createdAt.toDate().toLocaleString()}}
+                <v-icon color="red" @click="deleteComment(comment.id)" small>mdi-delete</v-icon>
               </v-list-item-subtitle>
             </v-list-item-content>
     
@@ -24,14 +25,19 @@
           <v-divider :key="comment.id"></v-divider>
         </template>
       </v-list>
+      <Form/>
     </v-container>  
-  </v-content>    
+  </v-content>
 </template>
 
 <script>
   import {db} from '@/plugins/firebase';
+  import Form from '@/views/Form';
   export default {
     name: "Chat",
+    components: {
+      Form
+    },
     data: () => ({
       comments: [],
     }),
@@ -41,6 +47,14 @@
         comments: db.collection('comments').orderBy('createdAt')
 
       }
+    },
+    methods: {
+      deleteComment(id) {
+        if (!confirm('コメントを削除してよろしいですか？')) {
+          return
+        }
+        db.collection('comments').doc(id).delete()
+      },
     },
   }
 </script>
