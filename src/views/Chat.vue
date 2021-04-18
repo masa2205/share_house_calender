@@ -24,14 +24,19 @@
           <v-divider :key="comment.id"></v-divider>
         </template>
       </v-list>
+      <Form/>
     </v-container>  
-  </v-content>    
+  </v-content>
 </template>
 
 <script>
   import {db} from '@/plugins/firebase';
+  import Form from '@/views/Form';
   export default {
     name: "Chat",
+    components: {
+      Form
+    },
     data: () => ({
       comments: [],
     }),
