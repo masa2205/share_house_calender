@@ -15,7 +15,7 @@
               <v-list-item-subtitle class="text--primary subheading">{{comment.content}}</v-list-item-subtitle>
               <v-list-item-subtitle>
                 {{comment.createdAt.toDate().toLocaleString()}}
-                <v-icon color="red" @click="deleteComment(comment.id)" small>mdi-deletegit</v-icon>
+                <v-icon color="red" @click="deleteComment(comment.id)" small>mdi-delete</v-icon>
               </v-list-item-subtitle>
             </v-list-item-content>
     
