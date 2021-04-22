@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home'
 import Test1 from './views/Test1'
 import Test2 from './views/Test2'
 import Counter from './components/Counter'
@@ -13,11 +12,6 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
-      {
-        path: '/',
-        name: 'Home',
-        component: Home
-      },
       {
         path: '/Test1',
         name: 'Test1',
