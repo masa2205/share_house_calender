@@ -15,6 +15,7 @@
     "firebase": "^8.4.1",
     "store": "^2.0.12",
     "vue": "^2.6.11",
+    "vue-calendar-heatmap": "^0.8.4",
     "vuefire": "^3.0.0-alpha.2",
     "vuetify": "^2.4.0"
   },
