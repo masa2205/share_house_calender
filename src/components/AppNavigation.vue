@@ -47,7 +47,7 @@
           {name: 'point of ToDo',icon: 'mdi-vuetify',link:'/Test1'},
           {name: 'グラフ推移',icon: 'mdi-cogs',link:'/Test2'},
           {name: '途中経過',icon: 'mdi-palette',link:'/Counter'},
-          {name: 'チャット',icon: 'mdi-table',link:'/Chat'}
+          {name: '黒板',icon: 'mdi-table',link:'/Chat'}
         ],
       }
     },

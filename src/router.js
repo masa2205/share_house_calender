@@ -19,7 +19,7 @@ const router = new Router({
         meta: {
           authRequired: true
         }
-      },  
+      },
       {
         path: '/Test2',
         name: 'Test2',
