@@ -60,5 +60,10 @@
 </script>
 
 <style scoped>
-
+.home-hero {
+  background: url("https://user-images.githubusercontent.com/65245621/116229712-cd379300-a791-11eb-9c6b-b4c51563908e.JPG");
+  background-size: cover;
+  width: 100%;
+  height: 250%;
+}
 </style>
