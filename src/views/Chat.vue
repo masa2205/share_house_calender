@@ -1,16 +1,12 @@
 <template>
   <v-content>
-    <v-container fluid fill-height>
+    <v-container fluid fill-height class='brackBord'>
       <v-list three-line>
         <template v-for="(comment, index) in comments">
-          <v-list-item
-              :key="index"
-              avatar
-          >
+          <v-list-item :key="index" avatar>
             <v-list-item-avatar>
               <img :src="comment.avatar">
             </v-list-item-avatar>
-    
             <v-list-item-content>
               <v-list-item-subtitle class="text--primary subheading">{{comment.content}}</v-list-item-subtitle>
               <v-list-item-subtitle>
@@ -18,7 +14,6 @@
                 <v-icon color="red" @click="deleteComment(comment.id)" small>mdi-delete</v-icon>
               </v-list-item-subtitle>
             </v-list-item-content>
-    
             <v-list-item-action>
             </v-list-item-action>
           </v-list-item>
@@ -60,10 +55,10 @@
 </script>
 
 <style scoped>
-.home-hero {
+.brackBord {
   background: url("https://user-images.githubusercontent.com/65245621/116229712-cd379300-a791-11eb-9c6b-b4c51563908e.JPG");
   background-size: cover;
-  width: 100%;
-  height: 250%;
+  /* max-width: auto;
+  max-height: auto; */
 }
 </style>
