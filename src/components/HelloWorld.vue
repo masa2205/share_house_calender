@@ -18,7 +18,7 @@ export default {
 .home-hero {
   background: url("https://user-images.githubusercontent.com/65245621/115658257-6a9a5d80-a373-11eb-9a14-74a8c10e435d.jpg");
   background-size: cover;
-  width: 100%;
+  max-width: 100%;
   height: 250%;
 }
 </style>

@@ -5,6 +5,7 @@ import Test2 from './views/Test2'
 import Counter from './components/Counter'
 import store from "@/store.js"
 import Chat from './views/Chat'
+import Home from './views/Home'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ const router = new Router({
         name: 'Test1',
         component: Test1,
         meta: {
-          authRequired: true
+          authRequired: false
         }
       },
       {
@@ -45,7 +46,15 @@ const router = new Router({
         name: 'Chat',
         component: Chat,
         meta: {
-          authRequired: true
+          authRequired: false
+        }
+      },
+      {
+        path: '/',
+        name: 'Home',
+        component: Home,
+        meta: {
+          authRequired: false
         }
       }
     ]
