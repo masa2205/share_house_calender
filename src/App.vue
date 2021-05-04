@@ -13,13 +13,11 @@
 
 <script>
 import AppNavigation from "./components/AppNavigation";
-// import Home from "./views/Home"
 
 export default {
   name: "App",
   components: {
     AppNavigation,
-    // Home
   }
 };
 </script>
