@@ -43,39 +43,29 @@
   export default {
     name: 'Form',
     data: () => ({
-      // form入力データ
       inputComment: "",
-      // バリデーション
       valid: true,
       commentRules: [
         v => !!v || 'コメントは必須項目です',
       ],
-      // Formダイアログの表示可否
       displayForm: false,
     }),
     methods: {
-      // コメント追加
       addComment() {
         const now = new Date()
-        // コメントをFirestoreへ登録
         db.collection('comments').add({
           content: this.inputComment,
           avatar: 'https://picsum.photos/50?image=' + (Math.floor(Math.random() * 400) + 1),
           createdAt: now
         })
-        // ダイアログを閉じる
         this.hideCreateForm()
       },
-      // Formの初期化
       clear() {
         this.$refs.form.reset()
       },
-      // Formダイアログの表示
       showCreateForm() {
         this.displayForm = true
       },
-      //
-      // Formダイアログの非表示
       hideCreateForm() {
         this.clear()
         this.displayForm = false

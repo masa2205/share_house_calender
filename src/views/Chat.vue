@@ -58,7 +58,5 @@
 .brackBord {
   background: url("https://user-images.githubusercontent.com/65245621/116229712-cd379300-a791-11eb-9c6b-b4c51563908e.JPG");
   background-size: cover;
-  /* max-width: auto;
-  max-height: auto; */
 }
 </style>
